@@ -38,8 +38,7 @@
 %   UKF_PREDICT1, UKF_UPDATE1, UKF_PREDICT2, UKF_UPDATE2, UKF_UPDATE3
 %   UT_TRANSFORM, UT_WEIGHTS, UT_MWEIGHTS, UT_SIGMAS 
 
-% Copyright (C) 2003-2006 Simo Sï¿½rkkï¿½
-% Copyright (C) 2007 Jouni Hartikainen
+% Copyright (C) 2003-2006 Simo Sï¿½rkkï¿?% Copyright (C) 2007 Jouni Hartikainen
 %
 % $Id: ukf_predict3.m 480 2010-10-18 07:45:48Z jmjharti $
 %
@@ -101,7 +100,7 @@ function [M,P,X,w,C] = ukf_predict3(M,P,f,Q,R,f_param,alpha,beta,kappa,mat)
   
   tr_param = {alpha beta kappa mat};
   [M,P,C,X_s,X_pred,w] = ut_transform(MA,PA,f,f_param,tr_param);
-    
+  P=P+Q;
   % Save sigma points
   X = X_s;
   X(1:size(X_pred,1),:) = X_pred;
